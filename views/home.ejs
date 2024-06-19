@@ -1,0 +1,170 @@
+<%- include('partials/header') %>
+
+
+<div class="main container">
+    <div class="hero">
+
+       <div class="menu center-div">
+            <div class="task-list" >
+                    <div class="task-name">
+                        <%= currentTodo %>
+                    </div>
+                <div class="dropdown-icon" id="dropdownIcon">
+                    <img src="images/icons8-dropdown-50.png" alt="dropdown">
+                </div>
+                <div class="dropdown-option display" id="dropdownOption">
+                    <div class="dropdown-item-container">
+                        <% todoList.forEach(item => {%>
+                            <div class="dropdown-item">
+                                <div class="dropdown-text"><%=item.tablename%></div>
+                                <div class="dropdown-checkbox">
+                                    <form action="/selectTodo" method="POST">
+                                        <input type="radio" name="radioButtonName" value="<%=item.tablename%>" onclick="this.parentNode.submit()">
+                                    </form>
+                                </div>
+                            </div>
+                        <%});%>
+                    </div>
+                </div>
+            </div>
+
+            <div class="add-task">
+                <div class="add-item-icon" id="add-items">
+                    <img src="images/icons8-add-50.png" alt="add">
+                </div>
+
+                <div class="add-item-options display" id="add-item-options">
+                    <div class="option-container">
+                        <div class="add-in-current" id="addInCurrentTodo">Add in current Todo</div>
+                        <div class="add-new-todo"><a href="/addNewTodo">Add new Todo</a></div>
+                        <div class="delete-current" id="deleteCurrentTodo">
+                            <form action="/deleteCurrentTodo" method="POST">
+                                <a onclick="this.parentNode.submit()"> Delete current Todo</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+       </div>
+
+
+       <div class="items-container center-div" id="items-container">
+        <% let i = 0; %>
+        <% todoTask.forEach(element => {%>
+            
+        
+            <div class="item data-id" >
+                <div class="un-editable" id="unEditable">
+                    <div class="flex-items">
+                        <div class="item-text"> <%= element.taskname %> </div>
+                        <div class="modify-container">
+                            <div class="edit" id="edit" data-id = <%= i %>><img src="images/icons8-edit-50.png" alt="edit"></div>
+                            <div class="delete" id="delete" data-id = <%= i %>>
+                                <form action="/delete" method="POST" class="flex-items">
+                                    <input type="hidden" name = "input_id" value="<%= element.taskid %>">
+                                    <a onclick="this.parentNode.submit();">
+                                        <img src="images/icons8-delete-60.png" alt="delete">
+                                    </a>
+                                </form> 
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="editable display" id="editable">
+                    <div class="update" id="update">
+                        <form action="/update" method="POST" class="flex-items">
+                            <input type="text" name="input_text" value="<%= element.taskname %>" class="input-update">
+                            <input type="hidden" name = "input_id" value="<%= element.taskid %>">
+                            <a onclick="this.parentNode.submit();">
+                                <img src="images/icons8-tick-60.png" alt="update">
+                            </a>
+                        </form> 
+                    </div>
+                </div>
+            </div> 
+            <% i++; %>
+        <%}); %>
+        <% if(todoTask.length == 0){ %>
+            <div class="emptylist">Add something here.</div>
+            <% } %>
+       </div>
+    </div>
+</div>
+
+
+<script>
+    const addItems = document.getElementById("add-items");
+    const addItemOption = document.getElementById("add-item-options");
+
+    const taskList = document.getElementById("dropdownIcon");
+    const dropdownOption = document.getElementById("dropdownOption");
+
+    const edit = document.querySelectorAll(".edit");
+    
+    const update = document.getElementById("update");
+    const unEditable = document.querySelectorAll(".un-editable");
+    const editable = document.querySelectorAll(".editable");
+
+    const addInCurrentTodo = document.getElementById("addInCurrentTodo");
+    const item_container = document.getElementById("items-container");
+
+   
+
+    // display add-item options
+    addItems.addEventListener('click', ()=>{
+        addItemOption.classList.toggle('display');
+    });
+
+    // display tasklist
+    taskList.addEventListener('click', ()=>{
+        taskList.classList.toggle("rotate");
+        dropdownOption.classList.toggle("display");
+    });
+
+    // edit each item
+    edit.forEach((e)=>{
+
+        e.addEventListener('click', ()=>{
+            console.log(e);
+            const elementId = e.getAttribute('data-id');
+            console.log(elementId);
+            unEditable[elementId].classList.toggle("display");
+            editable[elementId].classList.toggle("display");
+            console.log("clicked");
+        });
+    });
+
+    addInCurrentTodo.addEventListener('click', ()=>{
+        item_container.innerHTML = `
+        <div class="item">
+                <div class="editable" id="editable">
+                    <div class="update" id="update">
+                        <form action="/add" method="POST" class="flex-items">
+                            <input type="text" name="input_text" class="input-update" placeholder="Enter Task">
+
+                            <a onclick="this.parentNode.submit();">
+                                <img src="images/icons8-tick-60.png" alt="update">
+                            </a>
+                        </form> 
+                    </div>
+                </div>
+            </div> 
+        
+
+       </div>
+        
+        
+        
+        `+item_container.innerHTML;
+        addItemOption.classList.toggle('display');
+    });
+
+
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="scripts/delete.js"></script>
+<script src></script>
+<%- include('partials/footer') %>

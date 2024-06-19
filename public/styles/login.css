@@ -1,0 +1,163 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* utlity class */
+
+:root{
+    --primary-color : #F72798;
+    --secondary-color : #F57D1F;
+    --main-color : #EBF400;
+    --main-color-hover:#ecf400d8;
+    --padding-inline : 40px;
+    --text: white;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black;
+    color: var(--text);
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+
+
+/* --------login-container -------*/
+.login-container{
+    min-width: 600px;
+}
+
+
+
+/* logo header */
+.logo-header{
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    padding-inline: 20px;
+}
+
+.logo img{
+    width: 150px;
+}
+
+.login-text{
+    margin-top: 40px;
+}
+.login-text h3{
+    font-size: 32px;
+}
+
+.login-line{
+    margin-top: 5px;
+    width: 90px;
+    height: 5px;
+    background-color: var(--primary-color);
+    border: none;
+}
+
+.register-line{
+    margin-top: 5px;
+    width: 130px;
+    height: 5px;
+    background-color: var(--primary-color);
+    border: none;
+}
+
+/* login-credentials */
+
+.login-credentials{
+    margin-top: 60px;
+}
+
+.login-email, .login-password{
+    border: 2px solid var(--main-color);
+    margin-top: 50px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 15px;
+    padding-block: 10px;
+}
+
+.login-email img, .login-password img{
+    width: 30px;
+}
+
+.input-box{
+    width: 100%;
+    height: 25px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+}
+
+.input-box:focus{
+    outline: none;
+    caret-color: var(--main-color);
+}
+
+/* submit button */
+
+.login-submit{
+    margin-top: 40px;
+}
+
+.submit-button{
+    width: 100%;
+    border-radius: 20px;
+    background-color: var(--primary-color);
+    color: var(--text);
+    font-size: 24px;
+    padding-block: 16px;
+}
+
+
+/* dont-have-an-account */
+
+.dont-have-an-account{
+    margin-top: 10px;
+}
+
+.dont-have-an-account p{
+    text-align: center;
+}
+
+.dont-have-an-account p a{
+    color: var(--main-color);
+}
+
+
+/* responsive design for device width max-width : 768px */
+
+@media (max-width:768px){
+    .login-container{
+        min-width: 400px;
+        margin-top: 20px
+    }
+
+    .login-text{
+        margin-top: 20px;
+    }
+
+    .login-credentials{
+        margin-top: 20px;
+    }
+    
+};

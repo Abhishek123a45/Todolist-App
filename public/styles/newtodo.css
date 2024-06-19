@@ -1,0 +1,45 @@
+
+
+.new-todo-container{
+    height: 70vh;
+
+}
+.new-todo{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+}
+
+.add-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    width: 100%;
+}
+
+
+input{
+    width: 60%;
+    height: 50px;
+    font-size: 20px;
+    padding: 5px;
+}
+
+
+img:active{
+    width: 31px;
+}
+
+.form-add{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.add-icon{
+    min-width: 50px;
+}

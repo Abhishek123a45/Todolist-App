@@ -1,0 +1,170 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* utlity class */
+
+:root{
+    --primary-color : #F72798;
+    --secondary-color : #F57D1F;
+    --main-color : #EBF400;
+    --main-color-hover:#ecf400d8;
+    --padding-inline : 200px;
+    --text: white;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black;
+    color: var(--text);
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.container{
+    padding-inline: var(--padding-inline);
+}
+
+
+
+/* --------------header---------------- */
+
+.header{
+    margin-top: 20px;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-color);
+    padding-inline: 15px;
+    padding-block: 5px;
+    border-radius: 10px;
+}
+
+.logo img{
+    width: 150px;
+}
+
+.user img{
+    width: 48px;
+}
+
+.user-options{
+    display: flex;
+    gap: 20px;
+    font-size: 20px;
+    
+}
+
+.logout a, .manage-post a{
+    color: var(--main-color);
+}
+
+.logout a:active, .manage-post a:active{
+    color: var(--main-color-hover);
+}
+
+.user-button{
+    display: none;
+}
+
+.user-button-icon img{
+    width: 40px;
+}
+
+/* ----------main ------------------*/
+
+.main{
+    min-height: calc(100vh - 250px);
+    margin-top: 50px;
+}
+
+.hero{
+    border-radius: 10px;
+    height: calc(100vh - 250px);
+    background-color: var(--primary-color);
+    overflow-y: scroll;
+}
+
+
+
+/*------------ footer -------------------*/
+
+.footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding-block: 10px;
+}
+.footer-text{
+    text-align: center;
+}
+
+
+
+/* responsive design  */
+
+/* style for device width till 768px */
+
+@media(max-width:768px){
+    /* container */
+    .container{
+        padding-inline: 100px;
+    }
+
+    /* navbar */
+    .user-button{
+        display: block;
+        position: relative;
+    }
+
+    .user-options{
+        display: none;
+    }
+
+    .user-button-item{
+        position: absolute;
+        top: 50px;
+        right: 0;
+        background-color: black;
+        width: 200px;
+        height: 100px;
+        z-index: 99;
+        padding-left: 30px;
+        padding-top: 10px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+        border-radius: 10px;
+    }
+
+    .logout{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .logout img{
+        width: 18px;
+    }
+
+    .logo img{
+        width: 120px;
+    }
+    
+}
+

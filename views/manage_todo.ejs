@@ -1,0 +1,45 @@
+<%- include('partials/header.ejs') %>
+
+
+<div class="manage-todo-container container">
+    <div class="list-of-todo">
+        <div class="title-list-of-todo">
+            <h1>Your Todos</h1>
+        </div>
+        <div class="list-item-container">
+            <% let i = 0 %>
+            <%todoList.forEach((item)=>{%>
+
+                <div class="todo-list-item">
+
+
+                    <div class="un-editable" id="unEditable">
+                        <div class="flex-items">
+                            <div class="item-text"> <%= item.tablename %> </div>
+                            <div class="modify-container">
+                                <div class="delete" id="delete">
+                                    <form action="/deleteTodo" method="POST" class="flex-items">
+                                        <input type="hidden" name = "input_id" value="<%= item.tableid %>">
+                                        <a onclick="this.parentNode.submit();">
+                                            <img src="images/icons8-delete-60.png" alt="delete">
+                                        </a>
+                                    </form> 
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                   
+
+                </div>
+            <% i++; %>
+            <%});%>
+        
+        </div>
+    </div>
+</div>
+
+
+    
+<%- include('partials/footer.ejs') %>

@@ -1,0 +1,46 @@
+/* manage todolist container */
+.manage-todo-container{
+    height: 70vh;
+    margin-top: 20px;
+}
+
+.list-of-todo{
+    margin-inline: auto;
+    height: 100%;
+    overflow-y: scroll;
+    background-color: var(--primary-color);
+    border-radius: 20px;
+}
+
+.list-item-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-block: 20px;
+}
+
+.todo-list-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    padding-inline: 20px;
+    margin-bottom: 20px;
+    background-color: var(--secondary-color);
+    height: 70px;
+}
+
+
+/* list container heading */
+
+.title-list-of-todo{
+    width: 60%;
+    margin-inline: auto;
+    margin-top: 20px;
+}
+
+
+.un-editable, .editable{
+    width: 100%;
+}

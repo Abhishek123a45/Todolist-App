@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/manageTodo.css">
+    <link rel="stylesheet" href="styles/newtodo.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <title>Todo List</title>
+
+</head>
+<body>
+    
+<header class="header container">
+    <div class="navbar ">
+        <div class="logo">
+            <img src="images/logo.png" alt="logo">
+        </div>
+        <div class="user">
+            <div class="user-options">
+                <div class="logout"><a href="/logout">LOGOUT</a></div>
+                <div class="manage-post"><a href="manageTodo">MANAGE POST</a></div>
+            </div>
+            <div class="user-button">
+                <div class="user-button-icon" id="user-button-icon"><img src="images/icons8-user-96.png" alt="user-button"></div>
+                <div class="user-button-item-container display">
+                    <div class="user-button-item">
+                        <div class="logout"><a href="/logout">LOGOUT</a><img src="images/icons8-logout-50.png" alt="logout"></div>
+                        <div class="manage-post"><a href="manageTodo">MANAGE POST</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<script>
+    const userButton = document.getElementById("user-button-icon");
+    const userButtonItem = document.querySelector(".user-button-item-container");
+
+    userButton.addEventListener('click', ()=>{
+        userButtonItem.classList.toggle("display");
+    });
+</script>

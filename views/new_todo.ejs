@@ -1,0 +1,21 @@
+<%- include('partials/header.ejs') %>
+
+
+<div class="new-todo-container container">
+    <div class="new-todo">
+        <div class="add-container">
+
+            <form action="/addNewTodo" method="POST" class="form-add">
+                <input type="text" name="newTodoName" placeholder="Enter New Todo Name">
+                <a onclick="this.parentNode.submit();">
+                    <div class="add-icon"><img src="images/icons8-add-50.png" alt="add"></div>
+                </a>
+            </form>
+            
+        </div>
+    </div>
+</div>
+
+
+
+<%- include('partials/footer.ejs') %>

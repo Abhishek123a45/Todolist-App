@@ -1,0 +1,333 @@
+
+.center-div{
+    width: 60%;
+    margin-inline: auto;
+    
+}
+
+
+
+/*------ menu-------- */
+
+
+.menu{
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.task-list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    position: relative;
+    height: 30px;
+}
+
+
+
+.task-list .task-name{
+    font-size: 24px;
+}
+
+.add-item-icon{
+    cursor: pointer;
+    height: 35px;
+}
+
+.add-item-icon:active{
+    background-color: var(--main-color-hover);
+}
+
+.add-item-icon img, .dropdown-icon img{
+    width: 28px;
+}
+
+.rotate, .dropdown-icon{
+    transition: transform 0.3s linear;
+}
+
+
+
+.dropdown-icon img{
+    transform: rotate(180deg);
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+.dropdown-option{
+    width: 200px;
+    height: 150px;
+    position: absolute;
+    bottom: -180px;
+    left: 0px;
+    background-color: black;
+    overflow-y: scroll;
+    z-index: 100;
+}
+
+.dropdown-item-container{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    padding-block: 20px;
+    gap: 10px;
+
+}
+
+.dropdown-item{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    overflow-wrap: break-word;
+}
+
+
+/* add items options */
+
+.add-task{
+    position: relative;
+}
+
+.add-item-options{
+    background-color: black;
+    width: 200px;
+    height: 150px;
+    position: absolute;
+    bottom: -150px;
+    left: -200px;
+    z-index: 100;
+}
+
+.option-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    gap: 20px;
+    padding-left:30px;
+}
+
+
+.display{
+    display: none;
+}
+
+.add-in-current, .delete-current{
+    cursor: pointer;
+}
+
+.add-in-current:active, .delete-current:active{
+    color: rgb(111, 111, 111);
+}
+
+
+
+
+
+/* items-container */
+
+.items-container{
+    margin-top: 40px;
+}
+
+.item{
+    padding-inline: 50px;
+    padding-block: 14px;
+    margin-block: 50px;
+    background-color: var(--secondary-color);
+    position: relative;
+}
+
+.item::before{
+    content: ' ';
+    width: 700px;
+    height: 100%;
+    background-image: url('../images/longhand.png');
+    background-size:cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: -1000px;
+    z-index: 50;
+}
+
+.flex-items{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.item-text{
+    font-size: 20px;
+    overflow-wrap: break-word;
+}
+
+.modify-container{
+    display: flex;
+    gap: 20px;
+}
+
+.edit, .delete, .update{
+    cursor: pointer;
+}
+
+
+.edit img, .delete img, .update img{
+    width: 30px;
+}
+
+.edit img:active{
+    background-color: rgba(245, 245, 245, 0.556);
+}
+
+.input-update{
+    width: 80%;
+    font-size: 19px;
+    padding-block: 5px;
+    background: none;
+    color: white;
+    border: none;
+    border-bottom: 2px solid white;
+    outline: none;
+}
+
+.delete img:active{
+    background-color: red;
+}
+
+
+.update img:active{
+    background-color: rgba(0, 128, 0, 0.353);
+}
+   
+::-webkit-scrollbar {
+    width: 0;
+  }
+
+.emptylist{
+    text-align: center;
+}
+
+
+/* delete item animation */
+
+.move:before{
+    animation: deleteItem 2s linear;
+}
+
+@keyframes deleteItem {
+    /* 0%{
+        transform: translateX(-1000px);
+    } */
+   
+    
+    50%{
+        transform: translateX(500px);
+    }
+    100%{
+        transform: translateX(-1000px);
+    }
+}
+
+@keyframes moveItem {
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-1000px);
+    }
+}
+
+.move-item{
+    animation: moveItem 0.8s linear;
+}
+
+
+/* responsive desgin for device with min-width : 320px */
+@media (min-width:320px){
+    
+    .hero{
+        padding-inline: auto;
+    }
+
+    .container{
+        padding-inline: 40px;
+        border: 2px solid red;
+    }
+
+    .task-list .task-name{
+        font-size: 12px;
+    }
+
+    
+}
+
+
+/* responsive desgin for device with min-width : 425px */
+@media (min-width:425px){
+    
+    .hero{
+        padding-inline: auto;
+    }
+
+    .container{
+        padding-inline: 40px;
+    }
+
+    .task-list .task-name{
+        font-size: 12px;
+    }
+
+    .item-text{
+        font-size: 10px;
+    }
+
+    .add-item-icon img, .dropdown-icon img{
+        width: 18px;
+    }
+
+    .add-item-icon{
+        cursor: pointer;
+        height: 20px;
+    }
+
+    .edit img, .delete img, .update img{
+        width: 20px;
+    }
+}
+
+
+
+/* responsive design for device width max-width : 768px */
+@media (min-width:768px){
+    .hero{
+        padding-inline: auto;
+    }
+
+    .container{
+        padding-inline: 100px;
+        border: 2px solid rgb(0, 109, 205);
+    }
+    
+    .task-list .task-name{
+        font-size: 24px;
+    }
+
+    .item-text{
+        font-size: 20px;
+    }
+}
+

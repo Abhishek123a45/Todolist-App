@@ -1,0 +1,8 @@
+
+:root{
+    --primary-color : #F72798;
+    --secondary-color : #F57D1F;
+    --main-color : #EBF400;
+}
+
+font-family : 'Popins', 'sans-serif';
